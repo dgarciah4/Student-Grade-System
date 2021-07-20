@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Student Grades System</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="shortcut icon" href="#">
+
+</head>
+<body>
+
+
+
+
+{% extends "base2.html"%}
+{% block content %}
+
+<div class="jumbotron">
+  <p> Enter Student Name and Final Grade</p>
+  <form action="./student_form"class="form-inline" method="POST">
+    <label for="name"> Student Name: </label>
+    <input type="text" name="name" id="name">
+
+    <label for="grade"> Final Grade </label>
+    <input type="number" name="grade" id="grade">
+
+    <input type="submit" value="Submit">
+  </form>
+  <br>
+  <form action="" class="buttons" methods="get">
+    <button type="submit" class="btn btn-info"> <a href="{{url_for('list_all')}}">List All</a></button>
+    <button type="submit" class="btn btn-success"> <a href="{{url_for('list_pass')}}">List Passing</a></button>
+  </form>
+  <br>
+    <p> Enter Student to Delete </p>
+    <form action="./delete_student" class="form-inline" method="POST">
+      <label for="student.id"> Enter Student ID </label>
+      <input type="number" name="student.id" style="width: 400px;">
+      <input type="submit" value="Delete">
+    </form>
+</div>
+{% endblock %}
+
+
+</body>
+</html>
